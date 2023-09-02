@@ -1,13 +1,23 @@
 import { useRef, useState } from "react";
 
-const Welcome = () => {
+const Welcome = ({ setNav }) => {
   const ref1 = useRef();
   const ref2 = useRef();
   const ref3 = useRef();
   const openMain = () => {
-    ref1.current.classList.toggle("open-transition");
-    ref2.current.classList.toggle("open-transition");
-    ref3.current.classList.toggle("introAnim");
+    ref1.current.classList.add("open-transition");
+    ref2.current.classList.add("open-transition");
+    ref3.current.classList.add("introAnim");
+    setNav({
+      welcome: true,
+      header: true,
+    });
+    setTimeout(() => {
+      setNav({
+        welcome: false,
+        header: true,
+      });
+    }, 1000);
   };
   return (
     <>
