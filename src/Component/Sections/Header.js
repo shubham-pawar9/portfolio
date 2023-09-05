@@ -16,6 +16,20 @@ const Header = ({ setNav, setLoader, loader }) => {
         "fillLoader 2s ease-in-out 1 forwards";
     }, 50);
   };
+  const projectFunction = () => {
+    setTimeout(() => {
+      setNav({
+        header: true,
+        project: true,
+      });
+      setLoader(false);
+    }, 1400);
+    setLoader(true);
+    setTimeout(() => {
+      loaderRef.current.style.animation =
+        "fillLoader 2s ease-in-out 1 forwards";
+    }, 50);
+  };
   return (
     <>
       <div>
@@ -24,7 +38,9 @@ const Header = ({ setNav, setLoader, loader }) => {
           <li className="listItems" onClick={aboutFunction}>
             About
           </li>
-          <li className="listItems">Projects</li>
+          <li className="listItems" onClick={projectFunction}>
+            Projects
+          </li>
           <li className="listItems">Social</li>
           <li className="listItems">Contact</li>
         </ul>
