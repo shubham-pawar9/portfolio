@@ -1,26 +1,18 @@
+import { useState } from "react";
+import { projectData } from "./ProjectData";
 const Projects = ({ loader }) => {
-  const projectData = [
-    {
-      project: "AI-Tool (Personal Assistant)",
-      imageUrl: "../../images/card-AI-tool.jpg",
-      link: "",
-    },
-    {
-      project: "News Application UI Template",
-      imageUrl: "../../images/card-news-app.jpg",
-      link: "",
-    },
-    {
-      project: "AI-Tool (Personal Assistant)",
-      imageUrl: "../../images/card-AI-tool.jpg",
-      link: "",
-    },
-    {
-      project: "AI-Tool (Personal Assistant)",
-      imageUrl: "../../images/card-AI-tool.jpg",
-      link: "",
-    },
-  ];
+  const [projectDetails, setProjectDetails] = useState({
+    aiTool: "",
+    newsApp: "",
+    excelTable: "",
+    taskList: "",
+    liftDemo: "",
+    piano: "",
+  });
+
+  const showProjectDetails = (e) => {
+    setProjectDetails({ [e.target.id]: true });
+  };
   return (
     <>
       {!loader && (
@@ -30,11 +22,12 @@ const Projects = ({ loader }) => {
               projectData.map((val) => {
                 return (
                   <div className="card">
-                    <img className="cardImage" src={val.imageUrl} />
-                    <span className="title">{val.project}</span>
-                    <a className="link" href={val.link}>
-                      githubLink
-                    </a>
+                    <img
+                      id={val.id}
+                      className="cardImage"
+                      src={val.imageUrl}
+                      onClick={showProjectDetails}
+                    />
                   </div>
                 );
               })}
