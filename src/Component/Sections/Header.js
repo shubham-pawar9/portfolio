@@ -1,8 +1,15 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Header = ({ setNav, setLoader, loader }) => {
   const loaderRef = useRef();
-  const aboutFunction = () => {
+  const navClicksRef = useRef();
+
+  const aboutFunction = (e) => {
+    let navBtns = document.querySelectorAll(".listItems");
+    for (let i of navBtns) {
+      i.classList.remove("active");
+    }
+    e.target.classList.add("active");
     setTimeout(() => {
       setNav({
         header: true,
@@ -16,7 +23,12 @@ const Header = ({ setNav, setLoader, loader }) => {
         "fillLoader 2s ease-in-out 1 forwards";
     }, 50);
   };
-  const projectFunction = () => {
+  const projectFunction = (e) => {
+    let navBtns = document.querySelectorAll(".listItems");
+    for (let i of navBtns) {
+      i.classList.remove("active");
+    }
+    e.target.classList.add("active");
     setTimeout(() => {
       setNav({
         header: true,
@@ -34,15 +46,25 @@ const Header = ({ setNav, setLoader, loader }) => {
     <>
       <div>
         <ul className="navList">
-          <li className="listItems">Home</li>
-          <li className="listItems" onClick={aboutFunction}>
+          <li className="listItems" ref={navClicksRef}>
+            Home
+          </li>
+          <li className="listItems" ref={navClicksRef} onClick={aboutFunction}>
             About
           </li>
-          <li className="listItems" onClick={projectFunction}>
+          <li
+            className="listItems"
+            ref={navClicksRef}
+            onClick={projectFunction}
+          >
             Projects
           </li>
-          <li className="listItems">Social</li>
-          <li className="listItems">Contact</li>
+          <li className="listItems" ref={navClicksRef}>
+            Social
+          </li>
+          <li className="listItems" ref={navClicksRef}>
+            Contact
+          </li>
         </ul>
       </div>
       {loader && (
