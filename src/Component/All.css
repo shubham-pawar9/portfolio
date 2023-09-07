@@ -224,14 +224,6 @@ body {
     transition: transform 0.3s ease-in-out;
   }
   
-  /* Hover effect: scale the image slightly */
-  .image-container:hover img {
-    transform: scale(1.05);
-   
-  }
-  .image-container:hover {
-    box-shadow: 0px 18px 8px 0px rgb(0 0 0 / 33%);
-  }
   ::selection {
     background-color: transparent;
   }
@@ -245,10 +237,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
-  .cardImage:hover {
-    box-shadow: 0px 5px 3px 0px #ffffffa1;
-    transform: rotate3d(1, 1, 0, 0deg);
-  }
+ 
   .cardsDiv{
     display: flex;
     flex-wrap: wrap;
@@ -363,7 +352,18 @@ body {
     transition: all 0.1s ease-in-out;
     cursor: pointer;
   }
- 
+  @media (hover: hover) {
+  .image-container:hover img {
+    transform: scale(1.05);
+    
+  }
+  .image-container:hover {
+    box-shadow: 0px 18px 8px 0px rgb(0 0 0 / 33%);
+  }
+  .cardImage:hover {
+    box-shadow: 0px 5px 3px 0px #ffffffa1;
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
   .cardDiv:hover {
     box-shadow: 0px 8px 10px 2px #ffffffcc;
   }
@@ -373,6 +373,8 @@ body {
   .cardDiv:hover .userImage {
     height: 170px;
   }
+}
+
   .userName {
     font-size: 12px;
     font-family: cursive;
@@ -389,4 +391,69 @@ body {
     .headingName {
         font-size: -webkit-xxx-large;
     }
+    .cardsDiv {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+  }
+  .cardImage {
+    width: 125px;
+    height: 190px;
+    border: 5px solid #c2b6b6;
+    box-shadow: -20px 19px 11px 4px #5c0f0fcf;
+  }
+  .projectDetailsDiv {
+    width: 98%;
+    padding: 40px 0px;
+    background-color: #000000c2;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .projectDetailsSection {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.closeDetailsDiv {
+  color: #d85353;
+  font-weight: bold;
+}
+.detailsOuterDiv {
+  position: fixed;
+}
+.projectDetailsImg {
+  width: 100px;
+  margin-right: 0px;
+}
+.projectDescription {
+  font-size: smaller;
+    font-style: italic;
+    font-family: monospace;
+    width: 100vw;
+    padding: 15px;
+}
+.headingOfProject {
+  font-size: 20px;
+  font-family: monospace;
+  margin-bottom: 15px;
+}
+    .cardDiv {
+      width: 120px;
+      height: 170px;
+    }
+    .socialCards {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-content: space-around;
+  }
+  .userName {
+    font-size: xx-small;
+  }
+  .siteIcon {
+    width: 16px;
+  }
 }
