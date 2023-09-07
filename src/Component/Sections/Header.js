@@ -42,6 +42,25 @@ const Header = ({ setNav, setLoader, loader }) => {
         "fillLoader 2s ease-in-out 1 forwards";
     }, 50);
   };
+  const socialFunction = (e) => {
+    let navBtns = document.querySelectorAll(".listItems");
+    for (let i of navBtns) {
+      i.classList.remove("active");
+    }
+    e.target.classList.add("active");
+    setTimeout(() => {
+      setNav({
+        header: true,
+        social: true,
+      });
+      setLoader(false);
+    }, 1400);
+    setLoader(true);
+    setTimeout(() => {
+      loaderRef.current.style.animation =
+        "fillLoader 2s ease-in-out 1 forwards";
+    }, 50);
+  };
   return (
     <>
       <div>
@@ -59,7 +78,7 @@ const Header = ({ setNav, setLoader, loader }) => {
           >
             Projects
           </li>
-          <li className="listItems" ref={navClicksRef}>
+          <li className="listItems" ref={navClicksRef} onClick={socialFunction}>
             Social
           </li>
           <li className="listItems" ref={navClicksRef}>

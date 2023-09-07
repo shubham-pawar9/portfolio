@@ -331,6 +331,60 @@ body {
     border-radius: 2px;
     cursor: pointer;
   }
+  .userImage {
+    height: 95px;
+    border-radius: 50%;
+    background-color: #192023;
+    padding: 2px;
+    transition: all 0.1s ease-in-out;
+  }
+  .siteIcon {
+    width: 22px;
+  }
+  .socialCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+  .cardDiv {
+    width: 170px;
+    height: 250px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px;
+    background: rgb(120 41 41);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 0px 1px 1px #ffffff;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+ 
+  .cardDiv:hover {
+    box-shadow: 0px 8px 10px 2px #ffffffcc;
+  }
+  .cardDiv:hover .userImage {
+    box-shadow: 0px 0px 9px 0px #fff;
+  }
+  .cardDiv:hover .userImage {
+    height: 170px;
+  }
+  .userName {
+    font-size: 12px;
+    font-family: cursive;
+    color: #fff;
+    font-variant: small-caps;
+    text-shadow: 1px 4px 3px #000000ba;
+    letter-spacing: 3px;
+    margin: 8px 0;
+  }
+  .siteIconLink {
+    text-decoration: none;
+  }
 @media screen and (max-width: 600px) and (max-height: 900px) and (orientation: portrait) {
     .headingName {
         font-size: -webkit-xxx-large;
