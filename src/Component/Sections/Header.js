@@ -2,8 +2,19 @@ import { useEffect, useRef } from "react";
 
 const Header = ({ setNav, setLoader, loader }) => {
   const loaderRef = useRef();
-  const navClicksRef = useRef();
+  const navListRef = useRef();
 
+  const navShowOnMob = (e) => {
+    if (navListRef.current.style.left != "0px") {
+      navListRef.current.style.left = "0px";
+      document.querySelector(`${e.target.className} img`).src =
+        "../../images/close.png";
+    } else {
+      navListRef.current.style.left = "-100px";
+      document.querySelector(`${e.target.className} img`).src =
+        "../../images/menu.png";
+    }
+  };
   const aboutFunction = (e) => {
     let navBtns = document.querySelectorAll(".listItems");
     for (let i of navBtns) {
@@ -64,26 +75,21 @@ const Header = ({ setNav, setLoader, loader }) => {
   return (
     <>
       <div>
-        <ul className="navList">
-          <li className="listItems" ref={navClicksRef}>
-            Home
-          </li>
-          <li className="listItems" ref={navClicksRef} onClick={aboutFunction}>
+        <button className="burgerBtn" onClick={navShowOnMob}>
+          <img src="../../images/menu.png" alt="menuBtn" />
+        </button>
+        <ul className="navList" ref={navListRef}>
+          <li className="listItems">Home</li>
+          <li className="listItems" onClick={aboutFunction}>
             About
           </li>
-          <li
-            className="listItems"
-            ref={navClicksRef}
-            onClick={projectFunction}
-          >
+          <li className="listItems" onClick={projectFunction}>
             Projects
           </li>
-          <li className="listItems" ref={navClicksRef} onClick={socialFunction}>
+          <li className="listItems" onClick={socialFunction}>
             Social
           </li>
-          <li className="listItems" ref={navClicksRef}>
-            Contact
-          </li>
+          <li className="listItems">Contact</li>
         </ul>
       </div>
       {loader && (
