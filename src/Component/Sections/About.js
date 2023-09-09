@@ -1,4 +1,12 @@
 const About = ({ loader }) => {
+  const handleResumeDownload = () => {
+    const resumePdfUrl = "/shubham-resume.pdf"; // Specify the path to your resume.pdf
+    const link = document.createElement("a");
+    link.href = resumePdfUrl;
+    link.download = "shubham-pawar-resume.pdf"; // Specify the desired download file name
+    link.click();
+    window.alert("Resume downloaded successfully!");
+  };
   return (
     <>
       {!loader && (
@@ -10,9 +18,12 @@ const About = ({ loader }) => {
                 src="../../../images/about.jpeg"
                 alt="personal Image"
               />
+              <button className="resumeShow" onClick={handleResumeDownload}>
+                Download CV
+              </button>
             </div>
             <div className="aboutDetails">
-              <h1>About Me -</h1>
+              {/* <h1>About Me -</h1> */}
               <p>
                 Greetings! I'm Shubham Pawar, an individual with a passion for
                 both the precision of Mechanical Engineering and the artistry of

@@ -4,16 +4,36 @@ const Header = ({ setNav, setLoader, loader }) => {
   const loaderRef = useRef();
   const navListRef = useRef();
 
-  const navShowOnMob = (e) => {
-    if (navListRef.current.style.left != "0px") {
-      navListRef.current.style.left = "0px";
-      document.querySelector(`${e.target.className} img`).src =
-        "../../images/close.png";
-    } else {
-      navListRef.current.style.left = "-100px";
-      document.querySelector(`${e.target.className} img`).src =
-        "../../images/menu.png";
+  //added for mobile menuShow but currentlt is not in use
+  // const navShowOnMob = (e) => {
+  //   if (navListRef.current.style.left != "0px") {
+  //     navListRef.current.style.left = "0px";
+  //     document.querySelector(`${e.target.className} img`).src =
+  //       "../../images/close.png";
+  //   } else {
+  //     navListRef.current.style.left = "-100px";
+  //     document.querySelector(`${e.target.className} img`).src =
+  //       "../../images/menu.png";
+  //   }
+  // };
+  const homeFunction = (e) => {
+    let navBtns = document.querySelectorAll(".listItems");
+    for (let i of navBtns) {
+      i.classList.remove("active");
     }
+    e.target.classList.add("active");
+    setTimeout(() => {
+      setNav({
+        header: true,
+        home: true,
+      });
+      setLoader(false);
+    }, 1400);
+    setLoader(true);
+    setTimeout(() => {
+      loaderRef.current.style.animation =
+        "fillLoader 2s ease-in-out 1 forwards";
+    }, 50);
   };
   const aboutFunction = (e) => {
     let navBtns = document.querySelectorAll(".listItems");
@@ -75,11 +95,13 @@ const Header = ({ setNav, setLoader, loader }) => {
   return (
     <>
       <div>
-        <button className="burgerBtn" onClick={navShowOnMob}>
+        {/* <button className="burgerBtn" onClick={navShowOnMob}>
           <img src="../../images/menu.png" alt="menuBtn" />
-        </button>
+        </button> */}
         <ul className="navList" ref={navListRef}>
-          <li className="listItems">Home</li>
+          <li className="listItems" onClick={homeFunction}>
+            Home
+          </li>
           <li className="listItems" onClick={aboutFunction}>
             About
           </li>

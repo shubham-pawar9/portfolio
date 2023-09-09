@@ -1,12 +1,19 @@
-const Home = () => {
+const Home = ({ loader }) => {
   return (
     <>
-      <div className="homeSection">
-        <div className="insideHome">
-          <img className="homeImg" src="" alt="image" />
-          <div className="homeDetails"></div>
-        </div>
-      </div>
+      {!loader && (
+        <>
+          <div className="homeMainDiv">
+            <div>
+              <h2 className="homeHeading">
+                LET'S <span style={{ color: "#d85353" }}>BEGIN</span>
+              </h2>
+              <h3 className="homeSubHeading">WEB DEVELOPER</h3>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
+export default Home;
