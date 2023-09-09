@@ -24,6 +24,7 @@ const Header = ({ setNav, setLoader, loader }) => {
     e.target.classList.add("active");
     setTimeout(() => {
       setNav({
+        welcome: true,
         header: true,
         home: true,
       });
@@ -43,6 +44,7 @@ const Header = ({ setNav, setLoader, loader }) => {
     e.target.classList.add("active");
     setTimeout(() => {
       setNav({
+        welcome: true,
         header: true,
         about: true,
       });
@@ -62,6 +64,7 @@ const Header = ({ setNav, setLoader, loader }) => {
     e.target.classList.add("active");
     setTimeout(() => {
       setNav({
+        welcome: true,
         header: true,
         project: true,
       });
@@ -81,6 +84,7 @@ const Header = ({ setNav, setLoader, loader }) => {
     e.target.classList.add("active");
     setTimeout(() => {
       setNav({
+        welcome: true,
         header: true,
         social: true,
       });
@@ -99,9 +103,9 @@ const Header = ({ setNav, setLoader, loader }) => {
           <img src="../../images/menu.png" alt="menuBtn" />
         </button> */}
         <ul className="navList" ref={navListRef}>
-          <li className="listItems" onClick={homeFunction}>
+          {/* <li className="listItems" onClick={homeFunction}>
             Home
-          </li>
+          </li> */}
           <li className="listItems" onClick={aboutFunction}>
             About
           </li>

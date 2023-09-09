@@ -59,7 +59,9 @@ body {
   z-index: 1;
   /* backdrop-filter: blur(2px); */
 }
-
+.cursorC.setPosition {
+ opacity: 0; 
+}
 .loaderMainDIv {
     height: -webkit-fill-available;
     width: -webkit-fill-available;
@@ -119,6 +121,7 @@ body {
     width: 100vw;
     border: 1px solid black;
     display: flex;
+    z-index: -1;
 }
 .left {
     position: fixed;
@@ -480,24 +483,49 @@ body {
   .burgerBtn {
     display: none;
   }
-  .homeMainDiv {
+  .welcomeDescText {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    top: -90px;
+    z-index: -1;
+  }
+  .welcomeMainDiv {
     position: absolute;
     left: 50%;
     top: 28%;
     transform: translate(-50%, -50%);
     width: max-content;
+    opacity: 1;
+    transition: all 0.4s linear;
   }
-  .homeHeading {
+  .welcomeHeading {
     font-family: 'CustomFont', sans-serif;
     font-weight: 600;
-    color: #000;
+    color: #d85353;
     font-size: 90px;
+    text-align: center;
   }
-  .homeSubHeading {
+  .welcomeSubHeading {
     font-family: 'CustomFont', sans-serif;
     font-weight: 600;
     color: #ffffff;
     font-size: 30px;
+  }
+  .code {
+    color: #7d2b2b36;
+    font-size: 175px;
+  }
+  .create {
+    color: #7d2b2b36;
+    font-size: 175px;
+    text-align: center;
+  }
+  .inspire {
+    color: #7d2b2b36;
+    font-size: 175px;
+    text-align: right;
   }
 @media screen and (max-width: 600px) and (max-height: 900px) and (orientation: portrait) {
   .burgerBtn {
@@ -625,4 +653,35 @@ body {
     position: relative;
     bottom: 0px;
   }
+  .welcomeHeading {
+    font-size: xxx-large;
+  }
+  .welcomeSubHeading {
+    font-size: 20px;
+  }
+.allThreeCircles {
+  display: none;
+}
+.welcomeHeading span {
+  color: rgb(255 255 255 / 88%)
+}
+.code, .create, .inspire {
+  font-size: 95px;
+}
+.welcomeDescText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  top: 125px;
+  right: -145px;
+  z-index: -1;
+  transform: rotate(90deg);
+}
+body {
+  overflow: scroll;
+}
+.main {
+  border: none;
+}
 }
