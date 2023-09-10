@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import Projects from "./Sections/Projects";
 import Social from "./Sections/Social";
 import Home from "./Sections/Home";
+import Contact from "./Sections/Contact";
 const Main = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isListenerActive, setIsListenerActive] = useState(true);
@@ -32,6 +33,7 @@ const Main = () => {
     about: "",
     project: "",
     social: "",
+    contact: "",
   });
   const [loader, setLoader] = useState();
 
@@ -101,6 +103,7 @@ const Main = () => {
       {nav.about && <About loader={loader} />}
       {nav.project && <Projects loader={loader} />}
       {nav.social && <Social loader={loader} />}
+      {nav.contact && <Contact loader={loader} />}
     </>
   );
 };

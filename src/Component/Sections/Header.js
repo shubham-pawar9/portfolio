@@ -96,6 +96,26 @@ const Header = ({ setNav, setLoader, loader }) => {
         "fillLoader 2s ease-in-out 1 forwards";
     }, 50);
   };
+  const contactFunction = (e) => {
+    let navBtns = document.querySelectorAll(".listItems");
+    for (let i of navBtns) {
+      i.classList.remove("active");
+    }
+    e.target.classList.add("active");
+    setTimeout(() => {
+      setNav({
+        welcome: true,
+        header: true,
+        contact: true,
+      });
+      setLoader(false);
+    }, 1400);
+    setLoader(true);
+    setTimeout(() => {
+      loaderRef.current.style.animation =
+        "fillLoader 2s ease-in-out 1 forwards";
+    }, 50);
+  };
   return (
     <>
       <div>
@@ -115,7 +135,9 @@ const Header = ({ setNav, setLoader, loader }) => {
           <li className="listItems" onClick={socialFunction}>
             Social
           </li>
-          <li className="listItems">Contact</li>
+          <li className="listItems" onClick={contactFunction}>
+            Contact
+          </li>
         </ul>
       </div>
       {loader && (
